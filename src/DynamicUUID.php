@@ -4,6 +4,7 @@
 namespace Paynl\QR;
 
 use Paynl\QR\Error\Error;
+use Paynl\QR\Error\InvalidArgument;
 
 class DynamicUUID
 {
@@ -54,12 +55,6 @@ class DynamicUUID
         } else {
             UUID::validateReferenceHex($parameters['reference']);
         }
-
-        if ( ! isset($parameters['brandlock'])) {
-            $parameters['brandlock'] = 00;
-        }
-
-        UUID::validateBrandlock($parameters['brandlock']);
     }
 
     /**
